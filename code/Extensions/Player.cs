@@ -1,8 +1,9 @@
-﻿using Sandbox;
-using System;
+﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
+using Sandbox;
 
-namespace MinimalExample
+namespace ZombieSurvival
 {
 	partial class MinimalPlayer : Player
 	{
@@ -51,13 +52,16 @@ namespace MinimalExample
 			//
 			if ( IsServer && Input.Pressed( InputButton.Attack1 ) )
 			{
-				var ragdoll = new ModelEntity();
-				ragdoll.SetModel( "models/citizen/citizen.vmdl" );  
-				ragdoll.Position = EyePos + EyeRot.Forward * 40;
-				ragdoll.Rotation = Rotation.LookAt( Vector3.Random.Normal );
-				ragdoll.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
-				ragdoll.PhysicsGroup.Velocity = EyeRot.Forward * 1000;
+				for ( int i = 0; i < 1000; i++ )
+				{
+					_ = PunchMe();
+				}
 			}
+		}
+
+		public async Task PunchMe()
+		{
+			throw new Exception( "lol" );
 		}
 
 		public override void OnKilled()
