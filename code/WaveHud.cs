@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Sandbox;
 using Sandbox.UI;
+using ZombieSurvival.Events;
 
 
 // TODO : Move this to other folder when we found a way to fix hotloading this crap
@@ -32,7 +33,7 @@ namespace ZombieSurvival
 			this.SetTemplate( "/WaveHud.html" );
 		}
 		
-		[Event("ZombieSurvival.Second")]
+		[ZombieSurvivalEvents.Second]
 		public void Second()
 		{
 			var waves = Game.Instance.WaveStates;

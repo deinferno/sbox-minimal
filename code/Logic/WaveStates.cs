@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Sandbox;
+using ZombieSurvival.Events;
 
 // ReSharper disable once FunctionNeverReturns
 
@@ -83,7 +84,7 @@ namespace ZombieSurvival
 		{
 			Log.Info(  $"#{State} #{WaveNumber} #{StartTime} #{EndTime}");
 			// Do shit
-			Event.Run(  "ZombieSurvival.WaveStateChanged");
+			Event.Run( ZombieSurvivalEvents.WaveStateChanged );
 			
 			if (WaveNumber > NumberOfWaves) {
 				//Reset it for now

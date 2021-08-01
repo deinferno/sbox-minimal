@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Sandbox;
 using Sandbox.UI.Construct;
+using ZombieSurvival.Events;
 
 //
 // You don't need to put things in a namespace, but it doesn't hurt.
@@ -60,7 +61,7 @@ namespace ZombieSurvival
 			while (true)
 			{
 				await Task.DelaySeconds( 1 );
-				Event.Run(  "ZombieSurvival.Second");
+				Event.Run( ZombieSurvivalEvents.Second );
 			}
 		}
 		
@@ -71,7 +72,7 @@ namespace ZombieSurvival
 		{
 			base.ClientJoined( client );
 
-			var player = new MinimalPlayer();
+			var player = new BasePlayer();
 			client.Pawn = player;
 
 			player.Respawn();

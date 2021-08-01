@@ -2,10 +2,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Sandbox;
+using ZombieSurvival.Events;
 
 namespace ZombieSurvival
 {
-	partial class MinimalPlayer : Player
+	partial class BasePlayer : Player
 	{
 		public override void Respawn()
 		{
@@ -24,7 +25,7 @@ namespace ZombieSurvival
 			//
 			// Use ThirdPersonCamera (you can make your own Camera for 100% control)
 			//
-			Camera = new ThirdPersonCamera();
+			Camera = new FirstPersonCamera();
 
 			EnableAllCollisions = true;
 			EnableDrawing = true;
@@ -37,6 +38,7 @@ namespace ZombieSurvival
 		/// <summary>
 		/// Called every tick, clientside and serverside.
 		/// </summary>
+		///
 		public override void Simulate( Client cl )
 		{
 			base.Simulate( cl );
@@ -58,7 +60,6 @@ namespace ZombieSurvival
 				}
 			}
 		}
-
 		public async Task PunchMe()
 		{
 			throw new Exception( "lol" );

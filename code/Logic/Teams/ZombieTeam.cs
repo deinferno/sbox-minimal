@@ -4,6 +4,6 @@ namespace ZombieSurvival
 {
 	public class ZombieTeam : BaseTeam
 	{
-		public new static string Name = "Zombies";
+		public override string Name => "Zombies";
 	}
 }

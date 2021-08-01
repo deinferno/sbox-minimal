@@ -4,6 +4,6 @@ namespace ZombieSurvival
 {
 	public abstract partial class BaseTeam : NetworkComponent
 	{
-		public static string Name = "Base Team";
+		public virtual string Name { get; protected set; } = "Base Team";
 	}
 }
