@@ -55,7 +55,7 @@ namespace ZombieSurvival
 				time = waves.StartTime;
 			}
 
-			time = time - Time.Now;
+			time -= Time.Now;
 			
 			var timeStr = TimeSpan.FromSeconds(time).ToString(@"mm\:ss");
 
